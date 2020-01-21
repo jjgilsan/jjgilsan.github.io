@@ -1,6 +1,6 @@
 ---
 layout: linux
-title: Comandos de red, consola y troubleshooting 
+title: Comandos de red, consola y troubleshooting Linux
 ---
 <ol>
  	<li>Solución de problemas y comandos a tener en cuenta</li>
