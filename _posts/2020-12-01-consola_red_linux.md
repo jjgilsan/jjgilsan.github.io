@@ -1,11 +1,11 @@
 ---
 layout: linux
-title: Comandos de red y troubleshooting
+title: Comandos de red, consola y troubleshooting 
 ---
 <ol>
- 	<li><span id="result_box" class="short_text" lang="es"><span class="hps">Solución de problemas de</span> <span class="hps">la red con linux, hay van algunos de los comandos a tener en cuenta</span></span></li>
+ 	<li>Solución de problemas y comandos a tener en cuenta</li>
 </ol>
-# man "comando" entrega documentación de cada comando.
+<pre># man "comando" entrega documentación de cada comando.</pre>
 
 Ver y manejar procesos.
 <pre># htop</pre>
