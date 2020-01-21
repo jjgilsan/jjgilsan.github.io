@@ -4,12 +4,11 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Block de notas y apuntes. Tambien recetas de cocina.
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
-
+La idea de este espacio es ofrecer lo que pueda y así agradecer todo lo que he podido aprender de vosotros.  
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[jv4nj0@gmail.com](mailto:jv4nj0@gmail.com)
