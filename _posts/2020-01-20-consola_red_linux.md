@@ -2,6 +2,8 @@
 layout: linux
 title: Comandos de red, consola y troubleshooting Linux
 ---
+
+```html
 <ol>
  	<li>Solución de problemas y comandos a tener en cuenta</li>
 </ol>
@@ -61,7 +63,9 @@ Saber si un puerto está o no abierto:<span id="ezoic-pub-ad-placeholder-107" cl
 Y no podía faltar, el todo poderoso "PING" <b>Packet InterNet Groper</b>
 <pre># ping guifi.net</pre>
 
-Para toma de contacto con la consola y con un montón de lenguajes de programación está disponible la web <a href="https://www.codecademy.com/">https://www.codecademy.com/</a> , me lo recomendaron los amigos de <a href="http://guifi.net">guifi.net</a>, antes no había parte de pago.
+CONSOLA
+
+Para toma de contacto con la consola y con un montón de lenguajes de programación está disponible la web <a href="https://www.codecademy.com/">https://www.codecademy.com/</a> , me lo recomendaron los amigos de <a href="http://guifi.net">guifi.net</a>, antes no era de pago.
 
 Uno de los cursos express que se encuentran es el <a href="https://www.codecademy.com">https://www.codecademy.com</a>/learn/learn-the-command-line mediante un tutorial guiado vamos completando ejercicios, está muy bien para empezar, no hay que instalar nada, basta con registrase para tener acceso a todos los cursos, este es en ingles pero también podemos encontrar tutoriales de programación en castellano.
 
@@ -239,3 +243,4 @@ The system is going down for reboot at ...</pre>
 </strong>The system shutdown has been cancelled at ...
 </pre>
 &nbsp;
+```
