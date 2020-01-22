@@ -2,6 +2,7 @@
 layout: linux
 title: Comandos de red, consola y troubleshooting Linux
 ---
+
 Imprescindibles
 <pre># man "comando" entrega documentación de cada comando.</pre>
 Ver y manejar procesos.
@@ -51,60 +52,51 @@ Buscar maquinas RAPIDO   <a href="https://nmap.org/man/es/">https://nmap.org/m
 Ver negociacion de interfaces
 <pre># ethtool -a eth0</pre>
 Saber si un puerto está abierto:
-<code>nc -zv 192.168.122.88 80</code>
+<pre>nc -zv 192.168.122.88 80<pre>
 Y no podía faltar, el todo poderoso "PING" Packet InterNet Groper
 <pre># ping guifi.net</pre>
 Ver gateway y tabla de rutas
-<code>#route -n</code>
+<pre>#route -n</pre>
 
-CONSOLA
+<strong>CONSOLA</strong>
 
-Para toma de contacto con la consola y con un montón de lenguajes de programación está disponible la web <a href="https://www.codecademy.com/">https://www.codecademy.com/</a> , me lo recomendaron los amigos de <a href="http://guifi.net">guifi.net</a>, antes no era de pago.
-
-Uno de los cursos express que se encuentran es el <a href="https://www.codecademy.com">https://www.codecademy.com</a>/learn/learn-the-command-line mediante un tutorial guiado vamos completando ejercicios, está muy bien para empezar, no hay que instalar nada, basta con registrase para tener acceso a todos los cursos, este es en ingles pero también podemos encontrar tutoriales de programación en castellano.
+Para toma de contacto con la consola y con un montón de lenguajes de programación está disponible la web 
+<a href="https://www.codecademy.com/">https://www.codecademy.com/</a>, antes no era de pago.
 
 Otro sitio para empezar de cero con la consola, <a href="http://www.webminal.org/">http://www.webminal.org/</a> podemos practicar y aprender comandos en la consola online, script, phython...
 
-<a href="http://www.playterm.org/">http://www.playterm.org/ </a> consola online para practicar y con ejemplos, MOLA.
+<a href="http://www.playterm.org/">http://www.playterm.org/ </a> consola online para practicar y con ejemplos.
 
 En <a href="http://www.tecmint.com">http://www.tecmint.com</a>/category/linux-commands/ hay mucha mucha información, aunque está todo en ingles la web no tiene desperdicio, hay miles de how to, manuales, consejos, libros y en la sección de comandos, da gusto porque está todo muy bien explicado.
 
-<cite class="_Rm"><strong>En <a href="http://linuxzoo.net/">linuxzoo</a> tenemos acceso a maquinas virtuales completas .</strong>
-</cite>
+En <a href="http://linuxzoo.net/">linuxzoo</a> tenemos acceso a maquinas virtuales completas.
 
 <a href="http://www.commandlinefu.com/">http://www.commandlinefu.com/</a> recopilación de útiles lineas de comando.
 
-Estaba buscando acerca de color command console y se me ha aparecido fish "Welcome to fish, the friendly interactive shell" la verdad es que mola más que la consola monocromo. Además de colorines aporta descripciones de comandos.
+grc entrega resaltado con colores las salidas de los comandos.
 
-Y puestos a meter colores "grc", que entrega resaltado con colores la salida de los comandos.
-
-# apt-get install grc
-
-test
-
-# grc cat /var/log/syslog
-
+<pre># apt-get install grc</pre>
+ejemplo
+<pre># grc cat /var/log/syslog</pre>
 Le penemos un alias y ya está para siempre, no sirve para todos los comandos.
-
-# alias cat='grc cat'
+<pre># alias cat='grc cat'</pre>
 
 <strong>iptables</strong>
 
-# service iptables stop start restart
-
+<pre># service iptables stop start restart </pre>
 Para listar reglas
-
+<pre>
 iptables -nL
-<strong>iptables -L -n -v</strong>
+iptables -L -n -v
 iptables -n -L -v --line-numbers
 iptables -L INPUT -n -v
 iptables -L OUTPUT -n -v --line-numbers
-
+</pre>
 -L : Muestra las reglas.
 -v : Detalles.
 -n : Acelera la entrega, sin traducción.
-
 Para borrar las reglas
+<pre>
 iptables -F
 iptables -X
 iptables -t nat -F
@@ -114,57 +106,64 @@ iptables -t mangle -X
 iptables -P INPUT ACCEPT
 iptables -P OUTPUT ACCEPT
 iptables -P FORWARD ACCEPT
-
+</pre>
 -F : Borra todas las reglas.
 -X : Borra cadenas
 -t table_name : Selecciona una tabla y elimina reglas
 -P : Establece la polÃ­tica por defecto (como DROP, REJECT o ACCEPT)
+
 GUARDAR REGLAS
 
 Una vez que se apliquen reglas en iptables, se perderán cuando se reinicia el sistema. Para que se mantengan (una vez aplicadas las que queremos), deberemos hacer lo siguiente:
-iptables-save &gt; /etc/firewall.conf
 
+<pre># iptables-save &gt; /etc/firewall.conf </pre>
 Crearemos el archivo /etc/network/if-up.d/iptables y dentro pondremos:
-#!/bin/sh
-iptables-restore &lt; /etc/firewall.conf
-
+<pre>#!/bin/sh
+iptables-restore &lt; /etc/firewall.conf</pre>
 Hacerlo ejecutable y listo:
-chmod +x /etc/network/if-up.d/iptables
+<pre>chmod +x /etc/network/if-up.d/iptables</pre>
 
 Cualquier cambio que queramos hacer será modificando el archivo /etc/firewall.conf o ejecutando las reglas por comandos y salvando de nuevo como al principio:
-iptables-save &gt; /etc/firewall.conf
+<pre># iptables-save &gt; /etc/firewall.conf</pre>
 
-Habilitar el enrutamiento entre tarjetas de red de nuestro equipo:
-
-echo 1 &gt; /proc/sys/net/ipv4/ip_forward
+* Habilitar el enrutamiento entre tarjetas de red de nuestro equipo:
+<pre>#echo 1 &gt; /proc/sys/net/ipv4/ip_forward</pre>
 
 Ociones de tablas:
 
 Para la tabla filtros:
+<pre>
 INPUT: Indica paquetes recibidos.
 OUTPUT: Indica paquetes salientes.
 FORWARD: Indica paquetes que se reciben pero que no son para nosotros sino que se enroutan de nuevo.
+</pre>
 Para la tabla NAT:
+<pre>
 PREROUTING: Permite traducir direcciones de paquetes entrantes a ips NAT.
 POSTROUTING: Permite traducir direcciones NAT de paquetes salientes a la correspondiente ip.
 OUTPUT: Indica paquetes salientes.
+</pre>
 Para la tabla Mangle:
+<pre>
 INPUT: Indica paquetes recibidos.
 PREROUTING: Permite traducir direcciones de paquetes entrantes a ips NAT.
 POSTROUTING: Permite traducir direcciones NAT de paquetes salientes a la correspondiente ip.
 OUTPUT: Indica paquetes salientes.
 FORWARD: Indica paquetes que se reciben pero que no son para nosotros sino que se enrutan de nuevo.
+</pre>
 Para la tabla RAW:
+<pre>
 PREROUTING: Permite traducir direcciones de paquetes entrantes a ips NAT.
 OUTPUT: Indica paquetes salientes.
-
-Máxima restricción:
-
+</pre>
+* Máxima restricción:
+<pre>
 # IPTABLES -P INPUT   DROP
 # IPTABLES -P OUTPUT  DROP
 # IPTABLES -P FORWARD DROP
-
+</pre>
 TABLA FILTER Tabla por defecto permite, detiene, redirecciona, según cadena input output forward hay 3 cadenas por defecto.
+
 <pre>TABLA NAT
  # iptables -t nat -L
  Chain PREROUTING (policy ACCEPT)
@@ -178,7 +177,9 @@ Chain OUTPUT (policy ACCEPT)
 
 Chain POSTROUTING (policy ACCEPT)
  target     prot opt source               destination</pre>
+
 TABLA MANGLE  Combina las tablas, permite QOS nat filtrado y mas cosas
+
 <pre># iptables -t mangle -L
  Chain PREROUTING (policy ACCEPT)
  target     prot opt source               destination
@@ -194,9 +195,12 @@ Chain OUTPUT (policy ACCEPT)
 
 Chain POSTROUTING (policy ACCEPT)
  target     prot opt source               destination</pre>
-* El iptables-persistent sirve para almacenar la reglas NOTA: en caso de desarrollar un firewall sobre un sistema remoto, es posible configurar un cron job que ejecute service iptables-persistent restart periódicamente (por ejemplo cada 5 minutos) para no quedar "fuera", o sin acceso al sistema. De esta forma, si se agrega una nueva regla, y la misma nos deja fuera del sistema, sólo hay que esperar un período de tiempo hasta que el firewall se reinicie automáticamente. En cambio, si la regla funciona, es posible guardarla ejecutando service iptables-persistent save. Al finalizar con las modificaciones, es posible eliminar el cron job.
+ 
+* El iptables-persistent sirve para almacenar las reglas.
 
-RELOAD IN en Linux
+NOTA: en caso de desarrollar un firewall sobre un sistema remoto, es posible configurar un cron job que ejecute service iptables-persistent restart periódicamente (por ejemplo cada 5 minutos) para no quedar "fuera", o sin acceso al sistema. De esta forma, si se agrega una nueva regla, y la misma nos deja fuera del sistema, sólo hay que esperar un período de tiempo hasta que el firewall se reinicie automáticamente. En cambio, si la regla funciona, es posible guardarla ejecutando service iptables-persistent save. Al finalizar con las modificaciones eliminar el cron job.
+
+<strong>RELOAD IN en Linux</strong>
 
 <strong>Apagar</strong> la maquina ya:
 <pre><strong># </strong>sudo shutdown -<strong>r</strong></pre>
@@ -218,4 +222,4 @@ The system is going down for reboot at ...</pre>
 <pre><strong># shutdown -c
 </strong>The system shutdown has been cancelled at ...
 </pre>
-&nbsp;
+
