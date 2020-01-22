@@ -219,7 +219,7 @@ The system is going down for reboot at ...</pre>
 <pre><strong>#</strong> shutdown -<strong>r</strong> 17:00
 The system is going down for reboot at ...</pre>
 <strong>Cancelar orden:</strong>
-<pre><strong># shutdown -c
-</strong>The system shutdown has been cancelled at ...
-</pre>
+<pre><strong># shutdown -c</strong></pre>
+<pre>The system shutdown has been cancelled at ...</pre>
+
 
