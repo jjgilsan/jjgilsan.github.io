@@ -92,9 +92,11 @@ iptables -n -L -v --line-numbers
 iptables -L INPUT -n -v
 iptables -L OUTPUT -n -v --line-numbers
 </pre>
+<pre>
 -L : Muestra las reglas.
 -v : Detalles.
 -n : Acelera la entrega, sin traducción.
+</pre>
 Para borrar las reglas
 <pre>
 iptables -F
@@ -107,22 +109,21 @@ iptables -P INPUT ACCEPT
 iptables -P OUTPUT ACCEPT
 iptables -P FORWARD ACCEPT
 </pre>
+<pre>
 -F : Borra todas las reglas.
 -X : Borra cadenas
 -t table_name : Selecciona una tabla y elimina reglas
 -P : Establece la polÃ­tica por defecto (como DROP, REJECT o ACCEPT)
-
+</pre>
 GUARDAR REGLAS
 
 Una vez que se apliquen reglas en iptables, se perderán cuando se reinicia el sistema. Para que se mantengan (una vez aplicadas las que queremos), deberemos hacer lo siguiente:
-
 <pre># iptables-save &gt; /etc/firewall.conf </pre>
 Crearemos el archivo /etc/network/if-up.d/iptables y dentro pondremos:
 <pre>#!/bin/sh
 iptables-restore &lt; /etc/firewall.conf</pre>
 Hacerlo ejecutable y listo:
 <pre>chmod +x /etc/network/if-up.d/iptables</pre>
-
 Cualquier cambio que queramos hacer será modificando el archivo /etc/firewall.conf o ejecutando las reglas por comandos y salvando de nuevo como al principio:
 <pre># iptables-save &gt; /etc/firewall.conf</pre>
 
@@ -198,7 +199,7 @@ Chain POSTROUTING (policy ACCEPT)
  
 * El iptables-persistent sirve para almacenar las reglas.
 
-NOTA: en caso de desarrollar un firewall sobre un sistema remoto, es posible configurar un cron job que ejecute service iptables-persistent restart periódicamente (por ejemplo cada 5 minutos) para no quedar "fuera", o sin acceso al sistema. De esta forma, si se agrega una nueva regla, y la misma nos deja fuera del sistema, sólo hay que esperar un período de tiempo hasta que el firewall se reinicie automáticamente. En cambio, si la regla funciona, es posible guardarla ejecutando service iptables-persistent save. Al finalizar con las modificaciones eliminar el cron job.
+NOTA: Al configurar un firewall sobre un sistema remoto, se puede configurar un cron job que ejecute service iptables-persistent restart periódicamente (por ejemplo cada 5 minutos) para no quedar "fuera", o sin acceso al sistema. De esta forma, si se agrega una nueva regla, y la misma nos deja fuera del sistema, sólo hay que esperar un período de tiempo hasta que el firewall se reinicie automáticamente. En cambio, si la regla funciona, es posible guardarla ejecutando service iptables-persistent save. Al finalizar con las modificaciones eliminar el cron job.
 
 <strong>RELOAD IN en Linux</strong>
 
