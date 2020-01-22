@@ -94,25 +94,7 @@ Le penemos un alias y ya está para siempre, no sirve para todos los comandos.
 
 # alias cat='grc cat'
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-<pre></pre>
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
+<strong>iptables</strong>
 
 # service iptables stop start restart
 
