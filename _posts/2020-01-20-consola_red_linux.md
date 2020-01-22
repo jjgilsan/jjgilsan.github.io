@@ -3,7 +3,6 @@ layout: linux
 title: Comandos de red, consola y troubleshooting Linux
 ---
 
-```html
 <ol>
  	<li>Solución de problemas y comandos a tener en cuenta</li>
 </ol>
@@ -225,4 +224,3 @@ The system is going down for reboot at ...</pre>
 </strong>The system shutdown has been cancelled at ...
 </pre>
 &nbsp;
-```
