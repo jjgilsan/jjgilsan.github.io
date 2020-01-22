@@ -1,5 +1,5 @@
 ---
-layout: linux
+layout: post
 title: Comandos de red, consola y troubleshooting Linux
 ---
 
