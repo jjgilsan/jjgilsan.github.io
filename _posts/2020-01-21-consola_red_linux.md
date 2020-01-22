@@ -2,19 +2,15 @@
 layout: linux
 title: Comandos de red, consola y troubleshooting Linux
 ---
-
-<ol>
- 	<li>Solución de problemas y comandos a tener en cuenta</li>
-</ol>
+Imprescindibles
 <pre># man "comando" entrega documentación de cada comando.</pre>
-
 Ver y manejar procesos.
 <pre># htop</pre>
 Gráficas de trafico en interface
 <pre># speedometer -r eth0 -t eth0</pre>
 Bandwidth Monitor
 <pre># bmon</pre>
-Medir ancho de banda entre dos maquinas, se puede hacer TCP (real, con confirmación) o UDP (FTP sin confirmación de paquete). Si modificamos el tamaño de ventana vemos como aumenta el ancho de banda.
+iperf mide ancho de banda entre dos maquinas, se puede hacer TCP (real, con confirmación) o UDP (FTP sin confirmación de paquete). Si modificamos el tamaño de ventana vemos como aumenta el ancho de banda.
 <pre>root@servidor:~# iperf -s
 ------------------------------------------------------------
 Server listening on TCP port 5001
@@ -23,6 +19,7 @@ TCP window size: 85.3 KByte (default)
 [  4] local IP_SERVIDOR port 5001 connected with IP_CLIENTE port 33475
 [ ID] Interval       Transfer     Bandwidth
 [  4]  0.0-10.0 sec   113 MBytes  94.1 Mbits/sec</pre>
+
 <pre>root@cliente:~# iperf -c IP_SERVIDOR
 ------------------------------------------------------------
 Client connecting to IP_SERVIDOR, TCP port 5001
@@ -34,9 +31,7 @@ TCP window size: 43.8 KByte (default)
 Monitor de sistema en la consola
 <pre># nmon</pre>
 Ver uso de RAM
-<pre># free
-
-</pre>
+<pre># free</pre>
 Ver uso de HD
 <pre># df -h</pre>
 Memoria virtual SWAP
@@ -55,12 +50,12 @@ Buscar maquinas RAPIDO   <a href="https://nmap.org/man/es/">https://nmap.org/m
 <pre># nmap -sP 192.168.0.*</pre>
 Ver negociacion de interfaces
 <pre># ethtool -a eth0</pre>
-Saber si un puerto está o no abierto:<span id="ezoic-pub-ad-placeholder-107" class="ezoic-adpicker-ad" data-ezadpicker="107" data-ez-position-type="long_content"></span>
-
+Saber si un puerto está abierto:
 <code>nc -zv 192.168.122.88 80</code>
-
-Y no podía faltar, el todo poderoso "PING" <b>Packet InterNet Groper</b>
+Y no podía faltar, el todo poderoso "PING" Packet InterNet Groper
 <pre># ping guifi.net</pre>
+Ver gateway y tabla de rutas
+<code>#route -n</code>
 
 CONSOLA
 
