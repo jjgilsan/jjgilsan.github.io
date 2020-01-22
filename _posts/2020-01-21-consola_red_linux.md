@@ -52,7 +52,7 @@ Buscar maquinas RAPIDO   <a href="https://nmap.org/man/es/">https://nmap.org/m
 Ver negociacion de interfaces
 <pre># ethtool -a eth0</pre>
 Saber si un puerto está abierto:
-<pre>nc -zv 192.168.122.88 80<pre>
+<pre># nc -zv 192.168.122.88 80</pre>
 Y no podía faltar, el todo poderoso "PING" Packet InterNet Groper
 <pre># ping guifi.net</pre>
 Ver gateway y tabla de rutas
