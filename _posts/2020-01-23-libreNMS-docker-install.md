@@ -7,7 +7,7 @@ tags: [linux, librenms, docker, debian, snmp]
 
 
 BBDD
-
+<pre>
 docker run -d \
 -v `pwd`/mysql:/var/lib/mysql \
 -v `pwd`/50-server.cnf:/etc/mysql/mariadb.conf.d/50-server.cnf:ro \
@@ -32,3 +32,4 @@ docker run -d \
 seti/librenms
 
 Al navegador http://ipserver:888/install.php
+</pre>
