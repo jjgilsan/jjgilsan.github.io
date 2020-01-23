@@ -1,9 +1,11 @@
 ---
 layout: post
 title: Comandos de red, consola y troubleshooting Linux
+categories: [blog, net]
+tags: [linux, consola, iptables, comandos, reload]
 ---
 
-Imprescindibles
+Imprescindibless
 <pre># man "comando" entrega documentación de cada comando.</pre>
 Ver y manejar procesos.
 <pre># htop</pre>
